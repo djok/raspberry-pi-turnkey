@@ -18,8 +18,6 @@ wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
 rsn_pairwise=CCMP' > /etc/hostapd/hostapd.conf
 
-sudo echo 'DAEMON_CONF="/etc/hostapd/hostapd.conf"' > /etc/default/hostapd
-
 sudo cp config/hostapd /etc/default/hostapd
 sudo cp config/dhcpcd.conf /etc/dhcpcd.conf
 sudo cp config/dnsmasq.conf /etc/dnsmasq.conf

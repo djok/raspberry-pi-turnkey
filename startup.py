@@ -31,7 +31,7 @@ def getssid():
                 ssid_list.append(a[1])
             except:
                 pass
-    print(ssid_list)
+    # print(ssid_list)
     ssid_list = sorted(list(set(ssid_list)))
     return ssid_list
 
@@ -154,19 +154,16 @@ def signin():
     if password == "":
         pwd = "key_mgmt=NONE" # If open AP
 
-    print(ssid, password)
+    # print(ssid, password)
     valid_psk = check_cred(ssid, password)
     if not valid_psk:
         # User will not see this because they will be disconnected but we need to break here anyway
         print("Wrong password!")
         return render_template('index.html', message="Wrong password!")
-    print("fix wpa")
     with open('wpa.conf', 'w') as f:
         f.write(wpa_conf % (ssid, pwd))
-    print("fix status.json")
     with open('status.json', 'w') as f:
         f.write(json.dumps({'status':'disconnected'}))
-    print("start disable_ap.sh")
     subprocess.Popen(["./disable_ap.sh"])
     piid = open('pi.id', 'r').read().strip()
     return render_template('index.html', message="Please wait 2 minutes to connect.")
@@ -175,7 +172,7 @@ def wificonnected():
     result = subprocess.check_output(['iwconfig', 'wlan0'])
     matches = re.findall(r'\"(.+?)\"', result.split(b'\n')[0].decode('utf-8'))
     if len(matches) > 0:
-        print("got connected to " + matches[0])
+        # print("got connected to " + matches[0])
         return True
     return False
 
@@ -187,7 +184,7 @@ if __name__ == "__main__":
         subprocess.Popen("./expand_filesystem.sh")
         time.sleep(300)
     piid = open('pi.id', 'r').read().strip()
-    print(piid)
+    # print(piid)
     time.sleep(15)
     # get status
     s = {'status':'disconnected'}

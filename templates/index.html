@@ -24,8 +24,9 @@
     <link href="static/keyboard-dark.min.css" rel="stylesheet">
     <script src="static/jquery.keyboard.min.js"></script>
 
-    <script src="languages/de.min.js"></script>
-    <script src="languages/ms-Swiss-German.min.js"></script>
+    <!-- <script src="languages/de.min.js"></script> -->
+    <!-- <script src="languages/ms-Swiss-German.min.js"></script> -->
+    <script src="languages/ms-US-English.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="keyboard.min.css">
     <style type="text/css">
@@ -165,8 +166,8 @@
         }
 
         $('#inputPassword').keyboard({
-          language: ["de"],
-          layout: 'ms-Swiss German',
+          language: ["en"],
+          layout: 'ms-US English (Latin)',
           initialFocus: false,
           beforeClose: () => {
           }
@@ -235,7 +236,7 @@
             <input name="ssid" id="ssid_hidden" type="text" />
           </div>
 
-          <button class="btn btn-lg btn-primary btn-block" id="next">Weiter</button>
+          <button class="btn btn-lg btn-primary btn-block" id="next">More</button>
         </div>
 
         <div id="password">
@@ -244,7 +245,7 @@
             <label for="inputPassword">Password</label>
           </div>
 
-          <button class="btn btn-lg btn-primary btn-block" id="back">Zurück</button>
+          <button class="btn btn-lg btn-primary btn-block" id="back">Back</button>
           <button class="btn btn-lg btn-primary btn-block" type="submit" id="login">Login</button>
         </div>
       </form>
